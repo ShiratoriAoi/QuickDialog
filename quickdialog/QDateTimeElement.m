@@ -175,15 +175,15 @@
 
         NSDate *date;
         NSDate *time;
-        if (_mode == UIDatePickerModeTime){
+        if (self->_mode == UIDatePickerModeTime){
             time = [dict valueForKey:@"time"];
             date = [NSDate date];
         }
-        else if (_mode == UIDatePickerModeDate){
+        else if (self->_mode == UIDatePickerModeDate){
             date = [dict valueForKey:@"date"];
             time = [NSDate date];
         }
-        else if (_mode == UIDatePickerModeDateAndTime){
+        else if (self->_mode == UIDatePickerModeDateAndTime){
             date = [dict valueForKey:@"date"];
             time = [dict valueForKey:@"time"];
         } else {

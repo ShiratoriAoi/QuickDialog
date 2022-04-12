@@ -102,7 +102,7 @@
     [UIView animateWithDuration:animationDuration delay:0 options:animationCurve
         animations:^{
             CGRect keyboardFrame = [self.view convertRect:keyboardEndFrame toView:nil];
-            _textView.contentInset = UIEdgeInsetsMake(0.0, 0.0,  up ? keyboardFrame.size.height : 0, 0.0);
+        self->_textView.contentInset = UIEdgeInsetsMake(0.0, 0.0,  up ? keyboardFrame.size.height : 0, 0.0);
         }
         completion:NULL];
 }

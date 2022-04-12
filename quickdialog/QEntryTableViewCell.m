@@ -179,6 +179,7 @@
 }
 
 - (void)prepareForReuse {
+    [super prepareForReuse];
     _quickformTableView = nil;
     _entryElement = nil;
 }
@@ -192,7 +193,7 @@
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 50 * USEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        [_quickformTableView scrollToRowAtIndexPath:[_entryElement getIndexPath] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+        [_quickformTableView scrollToRowAtIndexPath:[self->_entryElement getIndexPath] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
     });
 
 
@@ -275,7 +276,7 @@
 
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC);
             dispatch_after(popTime, dispatch_get_main_queue(), ^{
-                UITableViewCell *c = [_quickformTableView cellForElement:element];
+                UITableViewCell *c = [self->_quickformTableView cellForElement:element];
                 if (c != nil) {
                     [c becomeFirstResponder];
                 }
